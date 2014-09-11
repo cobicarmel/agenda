@@ -1,0 +1,7 @@
+<?
+
+$actions = [
+	'agenda' => [
+		'updateDay' => 'w'
+	]
+];
