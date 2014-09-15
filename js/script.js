@@ -2,7 +2,7 @@
 
 var editForm = {
 
-	editableTerms: ['start', 'end', 'place', 'getting_mean', 'backing_mean', 'notes'],
+	editableTerms: ['start', 'end', 'place', 'getting_mean', 'backing_mean', 'getting_passengers', 'backing_passengers', 'notes'],
 
 	attachEvents: function(){
 

@@ -19,6 +19,8 @@ class Agenda {
 		'place',
 		'getting_mean',
 		'backing_mean',
+		'getting_passengers',
+		'backing_passengers',
 		'total_price',
 		'total_hours',
 		'notes'
@@ -190,9 +192,9 @@ class Agenda {
 	 */
 	private function createDay($date){
 
-		self::$input -> query('insert', self::DAYS_TABLE, ['date' => $date]);
+		self::$input->query('insert', self::DAYS_TABLE, ['date' => $date]);
 
-		$data = ['id' => self::$input -> sql->insert_id, 'date' => $date];
+		$data = ['id' => self::$input->sql->insert_id, 'date' => $date];
 
 		$this->registerDay($data);
 	}
@@ -261,11 +263,31 @@ class Agenda {
 
 class AgendaDay extends Agenda {
 
-	private $termsList = ['id', 'date', 'start', 'end', 'place', 'getting_mean', 'backing_mean', 'notes'];
+	private $termsList = [
+		'id',
+		'date',
+		'start',
+		'end',
+		'place',
+		'getting_mean',
+		'backing_mean',
+		'getting_passengers',
+		'backing_passengers',
+		'notes'
+	];
 
 	private $terms = [];
 
-	private $itemsToSave = ['start', 'end', 'place', 'getting_mean', 'backing_mean', 'notes'];
+	private $itemsToSave = [
+		'start',
+		'end',
+		'place',
+		'getting_mean',
+		'backing_mean',
+		'getting_passengers',
+		'backing_passengers',
+		'notes'
+	];
 
 	private $transportTerms = ['getting_mean', 'backing_mean'];
 
@@ -384,7 +406,7 @@ class AgendaDay extends Agenda {
 			$data[$item] = is_array($term) ? json_encode($term) : $term;
 		}
 
-		self::$input ->query('update', parent::DAYS_TABLE, $data, "where id = {$this->terms['id']}");
+		self::$input->query('update', parent::DAYS_TABLE, $data, "where id = {$this->terms['id']}");
 	}
 
 	private function parseData(){
