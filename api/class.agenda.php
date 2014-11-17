@@ -462,6 +462,9 @@ class AgendaDay extends Agenda {
 
 		$rangeStamp = $times['end']['time'] - $times['start']['time'];
 
+		if($rangeStamp < 0)
+			$rangeStamp += 86400; // + one day
+
 		$this->totalMinutes = $rangeStamp / 60;
 	}
 
