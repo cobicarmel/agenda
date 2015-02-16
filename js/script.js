@@ -4,6 +4,18 @@ var editForm = {
 
 	editableTerms: ['start', 'end', 'place', 'getting_mean', 'backing_mean', 'getting_passengers', 'backing_passengers', 'notes'],
 
+	assumeTime: function(){
+
+		var now = new Date,
+			minutes = now.getMinutes(),
+			hours = '0' + now.getHours(),
+			formattedHours = hours.substr(-2),
+			nearestTime = '0' + Math.round(minutes / 5) * 5,
+			formattedNearestTime = nearestTime.substr(-2);
+
+		return formattedHours + ':' + formattedNearestTime;
+	},
+
 	attachEvents: function(){
 
 		this.$days.children('.list-cell-edit').on('click', function(){
@@ -35,8 +47,14 @@ var editForm = {
 
 				$checkbox.prop('checked', true);
 			}
-			else
+			else {
+				
+				if(['start', 'end'].indexOf(termName) + 1 && ! currentData)
+					currentData = this.assumeTime();
+
 				this.$form.find('[name=' + termName + ']').val(currentData);
+			}
+
 		}
 
 		editForm.show();
