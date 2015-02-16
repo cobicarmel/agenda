@@ -48,8 +48,8 @@ var editForm = {
 				$checkbox.prop('checked', true);
 			}
 			else {
-				
-				if(['start', 'end'].indexOf(termName) + 1 && ! currentData)
+
+				if((termName == 'start' || (termName == 'end' && data['start'])) && ! currentData)
 					currentData = this.assumeTime();
 
 				this.$form.find('[name=' + termName + ']').val(currentData);
