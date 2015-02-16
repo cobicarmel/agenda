@@ -86,9 +86,12 @@ abstract class DTime {
 		return substr($zeros, $splitAt);
 	}
 
-	static function timePicker($name = 'time', $step = 5){
+	static function timePicker($name = 'time', $step = 5, $allowNull = true){
 
 		echo "<select name='$name' class='time-picker'>";
+
+		if($allowNull)
+			echo '<option></option>';
 
 		for($hour = 0; $hour < 24; $hour++){
 
