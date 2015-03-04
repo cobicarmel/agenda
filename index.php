@@ -40,6 +40,7 @@ $title = sprintf('יומן עבודה - %s %d', DTime::$hebMonths[$agenda->month
 	<meta charset="utf-8">
 	<title><?= $title ?></title>
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="fa/font-awesome.min.css">
 	<script src="js/jquery.js"></script>
 	<script src="js/script.js"></script>
 </head>
