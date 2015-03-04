@@ -189,6 +189,11 @@ $title = sprintf('יומן עבודה - %s %d', DTime::$hebMonths[$agenda->month
 		<div>לא נמצאו נתונים לחודש המבוקש</div>
 	<? endif ?>
 </div>
+<div id="tools">
+	<div class="tool" data-tool="summary">
+		<span class="fa fa-calculator"></span>
+	</div>
+</div>
 <script>
 	<?
 	$terms = [];
